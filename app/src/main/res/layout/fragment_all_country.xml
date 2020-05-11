@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F4F4F4"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AllCountryCases">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/countryToolbar"
+        android:layout_width="match_parent"
+        android:background="#F4F4F4"
+        android:layout_height="140dp"
+        app:titleTextAppearance="@style/yourstyle"
+        android:paddingTop="85dp"
+        android:gravity="bottom"
+        app:menu="@menu/menu_items"
+        app:title="Cases"
+        android:minHeight="?attr/actionBarSize">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allCountryListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/country_list_item"/>
+
+</LinearLayout>
