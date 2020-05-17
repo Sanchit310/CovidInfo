@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment {
 
 
         covidViewModel = ViewModelProviders.of(this).get(CovidViewModel.class);
-        covidViewModel.init();
+        covidViewModel.init(getActivity());
         covidViewModel.getCovidMutableLiveData().observe(getViewLifecycleOwner(), covidResponse ->{
             List<Countries> country = covidResponse.getCountries();
             Global global = covidResponse.getGlobal();
@@ -207,19 +207,37 @@ public class HomeFragment extends Fragment {
         optionsListItems.add(new OptionsListItem(R.drawable.runny_nose,"Symptoms"));
         optionsListItems.add(new OptionsListItem(R.drawable.precaution3,"Precautions"));
         optionsListItems.add(new OptionsListItem(R.drawable.newss,"News"));
-        optionsListItems.add(new OptionsListItem(R.drawable.nose_symp,"Symptoms"));
-        optionsListItems.add(new OptionsListItem(R.drawable.nose_symp,"Precautions"));
-        optionsListItems.add(new OptionsListItem(R.drawable.nose_symp,"News"));
-        optionsListItems.add(new OptionsListItem(R.drawable.nose_symp,"Symptoms"));
-        optionsListItems.add(new OptionsListItem(R.drawable.nose_symp,"Precautions"));
-        optionsListItems.add(new OptionsListItem(R.drawable.nose_symp,"News"));
-
+        optionsListItems.add(new OptionsListItem(R.drawable.myth_icon,"Myths"));
+        optionsListItems.add(new OptionsListItem(R.drawable.qna_icon,"FAQ"));
 
         recyclerView = view.findViewById(R.id.optionRecyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        optionsAdapter = new OptionsAdapter(getActivity(), optionsListItems );
+        optionsAdapter = new OptionsAdapter(getActivity(), optionsListItems, navController );
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(optionsAdapter);
+
+        optionsAdapter.setOnClickListener(new OptionsAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+                switch (position){
+                    case 0:
+                        navController.navigate(R.id.action_mainFragment_to_symptomFragment);
+                        break;
+                    case 1:
+                        navController.navigate(R.id.action_mainFragment_to_precautionFragment);
+                        break;
+                    case 2:
+                        navController.navigate(R.id.action_mainFragment_to_newsFragment);
+                        break;
+                    case 3:
+                        navController.navigate(R.id.action_mainFragment_to_mythsFragment);
+                        break;
+                    case 4:
+                        navController.navigate(R.id.action_mainFragment_to_faqFragment);
+                        break;
+                }
+            }
+        });
 
     }
 

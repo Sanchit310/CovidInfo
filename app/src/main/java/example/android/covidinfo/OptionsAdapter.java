@@ -10,6 +10,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -18,25 +19,37 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.OptionsViewHolder> implements Filterable {
+public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.OptionsViewHolder> {
 
     private ArrayList<OptionsListItem> optionsList;
-    private ArrayList<OptionsListItem> optionsFullList;
-    private Context context;
 
-    public OptionsAdapter(Context context, ArrayList<OptionsListItem> optionsList){
+    private Context context;
+   OnItemClickListener mlistener;
+
+    public interface OnItemClickListener{
+        void OnItemClick(int position);
+    }
+
+    public void setOnClickListener(OnItemClickListener listener){
+        mlistener = listener;
+    }
+
+
+
+    public OptionsAdapter(Context context, ArrayList<OptionsListItem> optionsList, NavController navController){
         this.optionsList = optionsList;
         this.context = context;
-        optionsFullList = new ArrayList<>(optionsList);
     }
 
     @NonNull
     @Override
     public OptionsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.options_list_item, parent, false);
-        return new OptionsViewHolder(view);
+        return new OptionsViewHolder(view, mlistener);
     }
 
     @Override
@@ -53,45 +66,13 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.OptionsV
             holder.optionCardView.setCardBackgroundColor(Color.parseColor("#ffbd33"));
         }
 
+
     }
 
     @Override
     public int getItemCount() {
-        return optionsList.size();
+        return 5;
     }
-
-    @Override
-    public Filter getFilter() {
-        return optionFilter;
-    }
-
-    private Filter optionFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<OptionsListItem> filteredList = new ArrayList<>();
-            if (constraint == null || constraint.length() == 0){
-                filteredList.addAll(optionsFullList);
-            }else {
-                String filteredPattern = constraint.toString().toLowerCase().trim();
-                for (OptionsListItem option : optionsFullList){
-                    if (option.getOptionName().toLowerCase().contains(filteredPattern)){
-                        filteredList.add(option);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            optionsList.clear();
-            optionsList.addAll( (List)results.values);
-            notifyDataSetChanged();
-        }
-    };
-
 
     public class OptionsViewHolder extends RecyclerView.ViewHolder{
 
@@ -99,11 +80,24 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.OptionsV
         TextView optionName;
         CardView optionCardView;
 
-        public OptionsViewHolder(@NonNull View itemView) {
+
+        public OptionsViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
             optionsImage = itemView.findViewById(R.id.optionsImage);
             optionName = itemView.findViewById(R.id.optionText);
             optionCardView = itemView.findViewById(R.id.optionCardView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.OnItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

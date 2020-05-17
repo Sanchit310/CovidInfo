@@ -56,7 +56,7 @@ public class AllCountryFragment extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
         covidViewModel = ViewModelProviders.of(this).get(CovidViewModel.class);
-        covidViewModel.init();
+        covidViewModel.init(getContext());
         covidViewModel.getCovidMutableLiveData().observe(getViewLifecycleOwner(), covidResponse -> {
             List<Countries> countryCases = covidResponse.getCountries();
             countriesArrayList.addAll(countryCases);

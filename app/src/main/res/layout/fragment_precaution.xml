@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/precaution_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".PrecautionFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/precautionToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:titleTextAppearance="@style/yourstyle"
+        app:title="Precautions"
+        android:paddingTop="85dp"
+        android:paddingLeft="24dp"
+        android:gravity="bottom"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarTheme">
+
+
+    </androidx.appcompat.widget.Toolbar>
+    
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/precautionViewPager"
+        android:layout_width="match_parent"
+        android:padding="24dp"
+        android:background="@null"
+        android:layout_gravity="center"
+        android:layout_height="525dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"/>
+</LinearLayout>

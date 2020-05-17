@@ -11,6 +11,12 @@
     </style>
     <style name="yourstyle" parent="@style/Base.TextAppearance.AppCompat.Title">
         <item name="android:textSize">35sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">#fff</item>
     </style>
 
 </resources>

@@ -41,7 +41,7 @@ public class AllCountryCases extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         covidViewModel = ViewModelProviders.of(this).get(CovidViewModel.class);
-        covidViewModel.init();
+        covidViewModel.init(getApplication());
         covidViewModel.getCovidMutableLiveData().observe(this, covidResponse -> {
             List<Countries> countryCases = covidResponse.getCountries();
             countriesArrayList.addAll(countryCases);

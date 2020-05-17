@@ -1,11 +1,16 @@
 package example.android.covidinfo;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import androidx.lifecycle.MutableLiveData;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CovidRepository {
+
+    Context context;
 
     private static CovidRepository covidRepository;
 
@@ -23,7 +28,8 @@ public class CovidRepository {
         covidApi = RetrofitService.createService(CovidApi.class);
     }
 
-    public MutableLiveData<Covid> getCovid(){
+    public MutableLiveData<Covid> getCovid(Context context){
+        this.context = context;
         final MutableLiveData<Covid> covidMutableLiveData = new MutableLiveData<>();
         covidApi.getCovidList().enqueue(new Callback<Covid>() {
             @Override
@@ -31,11 +37,14 @@ public class CovidRepository {
                 if (response.isSuccessful()){
                     covidMutableLiveData.setValue(response.body());
                 }
+                else {
+                    Toast.makeText(context, "Network error", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onFailure(Call<Covid> call, Throwable t) {
-                covidMutableLiveData.setValue(null);
+               Toast.makeText(context, "Network error, please check you internet", Toast.LENGTH_SHORT).show();
             }
         });
 
