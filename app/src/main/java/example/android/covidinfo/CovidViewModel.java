@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import example.android.covidinfo.Model.Covid;
 
 public class CovidViewModel extends ViewModel {
 

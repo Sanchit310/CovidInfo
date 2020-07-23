@@ -1,7 +1,6 @@
-package example.android.covidinfo;
+package example.android.covidinfo.Fragments;
 
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,9 +10,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import example.android.covidinfo.Model.Symptom;
+import example.android.covidinfo.R;
+import example.android.covidinfo.Adapters.SymptomAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,6 @@ public class SymptomFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         NavController navController = Navigation.findNavController(view);
-
         ImageView backBtn = view.findViewById(R.id.symBackBtn);
 
         backBtn.setOnClickListener(new View.OnClickListener() {

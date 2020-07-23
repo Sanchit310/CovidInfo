@@ -1,4 +1,4 @@
-package example.android.covidinfo;
+package example.android.covidinfo.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import example.android.covidinfo.Model.FaqnMyth;
+import example.android.covidinfo.R;
 
 public class FaqAdapter extends RecyclerView.Adapter<FaqAdapter.FaqnMythViewHolder> {
 

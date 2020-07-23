@@ -1,4 +1,4 @@
-package example.android.covidinfo;
+package example.android.covidinfo.Model;
 
 public class Symptom {
 

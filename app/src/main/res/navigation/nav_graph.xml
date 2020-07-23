@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="example.android.covidinfo.HomeFragment"
+        android:name="example.android.covidinfo.Fragments.HomeFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -52,15 +52,18 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_coronaTestFragment"
+            app:destination="@id/coronaTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/allCountryFragment2"
-        android:name="example.android.covidinfo.AllCountryFragment"
+        android:name="example.android.covidinfo.Fragments.AllCountryFragment"
         android:label="fragment_all_country"
         tools:layout="@layout/fragment_all_country" />
     <fragment
         android:id="@+id/symptomFragment"
-        android:name="example.android.covidinfo.SymptomFragment"
+        android:name="example.android.covidinfo.Fragments.SymptomFragment"
         android:label="fragment_symptom"
         tools:layout="@layout/fragment_symptom" >
         <action
@@ -70,22 +73,39 @@
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
-        android:name="example.android.covidinfo.NewsFragment"
+        android:name="example.android.covidinfo.Fragments.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/precautionFragment"
-        android:name="example.android.covidinfo.PrecautionFragment"
+        android:name="example.android.covidinfo.Fragments.PrecautionFragment"
         android:label="fragment_precaution"
-        tools:layout="@layout/fragment_precaution" />
+        tools:layout="@layout/fragment_precaution" >
+        <action
+            android:id="@+id/action_precautionFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mythsFragment"
-        android:name="example.android.covidinfo.MythsFragment"
+        android:name="example.android.covidinfo.Fragments.MythsFragment"
         android:label="fragment_myths"
-        tools:layout="@layout/fragment_myths" />
+        tools:layout="@layout/fragment_myths" >
+        <action
+            android:id="@+id/action_mythsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/faqFragment"
-        android:name="example.android.covidinfo.FaqFragment"
+        android:name="example.android.covidinfo.Fragments.FaqFragment"
         android:label="fragment_faq"
-        tools:layout="@layout/fragment_faq" />
+        tools:layout="@layout/fragment_faq" >
+        <action
+            android:id="@+id/action_faqFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coronaTestFragment"
+        android:name="example.android.covidinfo.Fragments.CoronaTestFragment"
+        android:label="fragment_corona_test"
+        tools:layout="@layout/fragment_corona_test" />
 </navigation>

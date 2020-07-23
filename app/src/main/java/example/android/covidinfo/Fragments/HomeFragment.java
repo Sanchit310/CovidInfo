@@ -1,24 +1,32 @@
-package example.android.covidinfo;
+package example.android.covidinfo.Fragments;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import example.android.covidinfo.CovidViewModel;
+import example.android.covidinfo.Model.Countries;
+import example.android.covidinfo.Model.Global;
+import example.android.covidinfo.Adapters.OptionsAdapter;
+import example.android.covidinfo.Model.OptionsListItem;
+import example.android.covidinfo.R;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -45,6 +53,7 @@ public class HomeFragment extends Fragment {
     TextSwitcher countryName, confirmed, recovered, death, indName, indianConfirmedCases, indianRecoveredCases, indianDeathCases, mGlobal, globalConfirmedCases, globalRecoveredCases, globalDeathCases;
     ArrayList<Countries> countries = new ArrayList<>();
     int num;
+    CardView coronaTestCard;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -110,7 +119,13 @@ public class HomeFragment extends Fragment {
             int rcvrd = Integer.parseInt(global.getWorldRecoveredCases());
             int dth = Integer.parseInt(global.getWorldDeathCases());
 
-
+            coronaTestCard = view.findViewById(R.id.coronaTestCard);
+            coronaTestCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    navController.navigate(R.id.action_mainFragment_to_coronaTestFragment );
+                }
+            });
 
             pieChart.setUsePercentValues(true);
             pieChart.getDescription().setEnabled(false);
@@ -203,6 +218,13 @@ public class HomeFragment extends Fragment {
 
         pieChart = view.findViewById(R.id.worldPieChart);
 
+        EditText searchBar = view.findViewById(R.id.homeSearchBar);
+        searchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Feature not available", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         optionsListItems.add(new OptionsListItem(R.drawable.runny_nose,"Symptoms"));
         optionsListItems.add(new OptionsListItem(R.drawable.precaution3,"Precautions"));

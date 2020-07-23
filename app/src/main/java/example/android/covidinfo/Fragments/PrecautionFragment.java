@@ -1,4 +1,4 @@
-package example.android.covidinfo;
+package example.android.covidinfo.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,11 +8,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
+import example.android.covidinfo.Model.Precaution;
+import example.android.covidinfo.Adapters.PrecautionPagerAdapter;
+import example.android.covidinfo.R;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +44,11 @@ public class PrecautionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_precaution, container, false);
         Toolbar toolbar = view.findViewById(R.id.precautionToolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        toolbar.setTitle("Precautions");
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
+
+
+
         return view;
     }
 
@@ -48,7 +56,14 @@ public class PrecautionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewPager = view.findViewById(R.id.precautionViewPager);
-
+        ImageView backBtn = view.findViewById(R.id.preBackBtn);
+        NavController navController = Navigation.findNavController(view);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_precautionFragment_to_mainFragment);
+            }
+        });
 
 
 

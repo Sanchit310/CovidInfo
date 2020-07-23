@@ -1,4 +1,4 @@
-package example.android.covidinfo;
+package example.android.covidinfo.Fragments;
 
 import android.os.Bundle;
 
@@ -12,6 +12,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import example.android.covidinfo.Adapters.CovidAdapter;
+import example.android.covidinfo.CovidViewModel;
+import example.android.covidinfo.Model.Countries;
+import example.android.covidinfo.R;
 
 import android.view.LayoutInflater;
 import android.view.Menu;

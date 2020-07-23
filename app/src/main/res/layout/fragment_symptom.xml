@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/symptom_background"
-    tools:context=".SymptomFragment">
+    tools:context=".Fragments.SymptomFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/symptomToolbar"

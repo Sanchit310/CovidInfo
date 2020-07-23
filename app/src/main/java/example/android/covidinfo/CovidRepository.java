@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
+import example.android.covidinfo.Model.Covid;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
