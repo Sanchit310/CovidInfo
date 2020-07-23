@@ -52,9 +52,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_mainFragment_to_coronaTestFragment"
-            app:destination="@id/coronaTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/allCountryFragment2"
@@ -75,7 +72,11 @@
         android:id="@+id/newsFragment"
         android:name="example.android.covidinfo.Fragments.NewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/precautionFragment"
         android:name="example.android.covidinfo.Fragments.PrecautionFragment"
@@ -104,8 +105,17 @@
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/coronaTestFragment"
-        android:name="example.android.covidinfo.Fragments.CoronaTestFragment"
-        android:label="fragment_corona_test"
-        tools:layout="@layout/fragment_corona_test" />
+        android:id="@+id/newsDetailsFragment"
+        android:name="example.android.covidinfo.Fragments.NewsDetailsFragment"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details" >
+        <argument
+            android:name="News"
+            app:argType="example.android.covidinfo.Model.News"
+            app:nullable="true" />
+        <argument
+            android:name="pos"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>
