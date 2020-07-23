@@ -52,6 +52,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_coronaTestFragment"
+            app:destination="@id/coronaTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/allCountryFragment2"
@@ -118,4 +121,9 @@
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
+    <fragment
+        android:id="@+id/coronaTestFragment"
+        android:name="example.android.covidinfo.Fragments.CoronaTestFragment"
+        android:label="fragment_corona_test"
+        tools:layout="@layout/fragment_corona_test" />
 </navigation>
