@@ -1,10 +1,10 @@
 # CovidInfo
 An android app having information related to COVID-19.
 
-- Displays covid-19 cases of all countries and also world cases with graph.
-- User can search specific country by using search bar.
-- News events are also added in the app
-- Symptom, precautions, myths and FAQs related to covid-19 are available.
+- Displays COVID-19 cases of all countries and also world cases with a graph.
+- Users can search for specific country by using a search bar.
+- News events are also added to the app.
+- Symptoms, precautions, myths and FAQs related to COVID -19 are available.
 
 ## Screenshots
 [Video link](https://drive.google.com/file/d/1WqGuTQBByyWSwvXo7SlK23CuoynzpInc/view?usp=sharing)
