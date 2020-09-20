@@ -7,7 +7,7 @@ An android app having information related to COVID-19.
 - Symptom, precautions, myths and FAQs related to covid-19 are available.
 
 ## Screenshots
-[YouTube video link](https://youtu.be/eRd6Z3AC_YQ)
+[Video link](https://drive.google.com/file/d/1WqGuTQBByyWSwvXo7SlK23CuoynzpInc/view?usp=sharing)
 
 <img src="https://user-images.githubusercontent.com/44144836/86155321-e47e0380-bb21-11ea-89bc-e6adf8692003.jpg" alt="drawing" width="200"/> <img src="https://user-images.githubusercontent.com/44144836/86155351-eb0c7b00-bb21-11ea-94a4-16bd0d09b1b4.jpg" alt="drawing" width="200"/>
 <img src="https://user-images.githubusercontent.com/44144836/86155354-eba51180-bb21-11ea-8921-db8b67c6643a.jpg" alt="drawing" width="200"/>
